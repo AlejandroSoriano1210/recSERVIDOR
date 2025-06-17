@@ -22,6 +22,6 @@ class Fabricado extends Model
         $alto = $this->alto/1000;
         $ancho = $this->ancho/1000;
 
-        return $this->mueble->precio * $alto * $ancho;
+        return number_format($this->mueble->precio * $alto * $ancho, 2);
     }
 }
