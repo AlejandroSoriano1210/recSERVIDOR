@@ -13,8 +13,6 @@ class Mueble extends Model
     protected $fillable = [
         'denominacion',
         'precio',
-        'muebleable_type',
-        'muebleable_id'
     ];
 
     public function muebleable()

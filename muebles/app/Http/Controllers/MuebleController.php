@@ -48,7 +48,11 @@ class MuebleController extends Controller
 
         }
 
-        Mueble::create(['denominacion'=> $validated['denominacion'], 'precio' => $validated['precio'], 'muebleable_type' => $validated['muebleable_type'], 'muebleable_id' => $muebleable->id]);
+        // Mueble::create(['denominacion'=> $validated['denominacion'], 'precio' => $validated['precio'], 'muebleable_type' => $validated['muebleable_type'], 'muebleable_id' => $muebleable->id]);
+
+        $mueble = new Mueble(['denominacion'=> $validated['denominacion'], 'precio' => $validated['precio']]);
+        $mueble->muebleable()->associate($muebleable);
+        $mueble->save();
 
         return redirect()->route('muebles.index');
     }
