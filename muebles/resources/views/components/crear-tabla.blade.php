@@ -19,15 +19,12 @@
                 @foreach ($datos as $dato)
                     <tr
                         class="bg-white border-b dark:bg-gray-500 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-                        @foreach ($cabeceras as $cabecera)
-                            @php
-                                $columna = strtolower(iconv('UTF-8', 'ASCII//TRANSLIT', $cabecera));
-                            @endphp
+                        @foreach ($comandos as $comando)
                             <td class="px-6 py-4">
-                                @if (method_exists($dato, $columna))
-                                    {{ $dato->$columna() }}
-                                @elseif (isset($dato->$columna))
-                                    {{ $dato->$columna }}
+                                @if (method_exists($dato, $comando))
+                                    {{ $dato->$comando() }}
+                                @elseif (isset($dato->$comando))
+                                    {{ $dato->$comando }}
                                 @else
                                     {{ '---' }}
                                 @endif
