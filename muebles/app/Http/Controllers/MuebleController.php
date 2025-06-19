@@ -34,8 +34,8 @@ class MuebleController extends Controller
             'denominacion' => 'required|string|max:255',
             'precio' => 'required|numeric|max:99999999.99|min:0',
             'muebleable_type' => 'required|string',
-            'ancho' => 'required_if:muebleable_type,App\Models\Fabricado|integer',
-            'alto' => 'required_if:muebleable_type,App\Models\Fabricado|integer',
+            'ancho' => 'required_if:muebleable_type,App\Models\Fabricado|nullable|integer',
+            'alto' => 'required_if:muebleable_type,App\Models\Fabricado|nullable|integer',
         ]);
 
         if($validated['muebleable_type'] === 'App\Models\Fabricado') {
@@ -54,7 +54,7 @@ class MuebleController extends Controller
         $mueble->muebleable()->associate($muebleable);
         $mueble->save();
 
-        return redirect()->route('muebles.index');
+        return redirect()->route('muebles.show', $mueble);
     }
 
     /**

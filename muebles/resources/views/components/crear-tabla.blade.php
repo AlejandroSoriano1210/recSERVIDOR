@@ -1,4 +1,4 @@
-<div class="p-60 text-gray-900">
+<div class="flex items-center justify-center mt-20">
     @if ($datos->isNotEmpty())
         <table>
             <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
@@ -31,9 +31,10 @@
                             </td>
                         @endforeach
                         @auth
-                            <td class="px-6 py-4 flex items-center">
+                            <td class="px-8 py-4 flex items-center">
                                 <x-boton-editar :objeto="$dato" ruta="{{ $clase }}" />
-                                <x-boton-borrar :objeto="$dato" ruta="{{ $clase }}" class="ms-3" />
+                                <x-boton-borrar :objeto="$dato" ruta="{{ $clase }}" />
+                                <x-boton-mostrar :objeto="$dato" ruta="{{ $clase }}" />
                             </td>
                         @endauth
                     </tr>

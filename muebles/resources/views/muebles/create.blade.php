@@ -67,30 +67,32 @@
             </form>
         </div>
     </div>
-    {{-- <script>
-        addEventListener('load', function () {
+    <script>
+        addEventListener('load', function() {
             var ancho = document.getElementById('anchodiv');
             var alto = document.getElementById('altodiv');
 
             function aparece() {
-                if (selector.value === 'App\Models\Prefabricado') {
+                if (selector.value === 'App\\Models\\Prefabricado') {
 
                     ancho.hidden = true;
-                    ancho.disabled = true;
+                    ancho.querySelector('input').required = false;
                     alto.hidden = true;
-                    alto.disabled = true;
+                    alto.querySelector('input').required = false;
 
                 } else {
 
                     ancho.hidden = false;
-                    ancho.disabled = false;
+                    ancho.querySelector('input').required = true;
+
                     alto.hidden = false;
-                    alto.disabled = false;
+                    alto.querySelector('input').required = true;
+
                 }
             }
 
             var selector = document.getElementById('muebleable_type');
             selector.addEventListener('change', aparece);
         });
-    </script> --}}
+    </script>
 </x-app-layout>
