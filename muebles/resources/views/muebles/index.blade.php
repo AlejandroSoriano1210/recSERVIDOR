@@ -1,4 +1,5 @@
 <x-app-layout>
+    @livewire('barra-busqueda', ['clase' => App\Models\Mueble::class, 'comando' => 'denominacion'])
     <x-crear-tabla :cabeceras="['Denominación', 'Precio', 'Ancho', 'Alto']" :datos="$muebles" clase="muebles" :comandos="['denominacion', 'precio', 'ancho', 'alto']" />
     @auth
         <div class="mt-6 text-center">
